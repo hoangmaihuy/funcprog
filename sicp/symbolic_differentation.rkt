@@ -4,7 +4,7 @@
   (symbol? exp)
 )
 
-(define (same-variable e1 e2)
+(define (same-variable? e1 e2)
   (and (variable? e1) (variable? e2) (eq? e1 e2))
 )
 
@@ -14,6 +14,10 @@
 
 (define (product? exp)
   (eq? (car exp) '*)
+)
+
+(define (exponentiation? exp)
+  (eq? (car exp) '**)
 )
 
 (define (addend exp)
@@ -29,6 +33,14 @@
 )
 
 (define (multiplicand exp)
+  (caddr exp)
+)
+
+(define (base exp)
+  (cadr exp)
+)
+
+(define (exponent exp)
   (caddr exp)
 )
 
@@ -49,10 +61,25 @@
   )
 )
 
+(define (make-exponentiation base exponent)
+  (cond 
+    ((eq? exponent 0) 1)
+    ((eq? exponent 1) base)
+    (else (list '** base exponent))
+  )
+)
+
 (define (deriv exp var)
   (cond 
     ((number? exp) 0)
-    ((variable? exp) (if (same-variable exp var) 1 0))
+    ((variable? exp) (if (same-variable? exp var) 1 0))
+    ((exponentiation? exp)
+      (make-product 
+        (make-product (exponent exp) 
+                      (make-exponentiation (base exp) (- (exponent exp) 1)))
+        (deriv (base exp) var)
+      )
+    )
     ((sum? exp) 
       (make-sum (deriv (addend exp) var) 
                 (deriv (augend exp) var)
@@ -78,3 +105,5 @@
 (deriv '(* 2 x) 'x)
 (deriv '(* x y) 'x)
 (deriv '(* (* x y) (+ x 3)) 'x)
+(deriv '(** x 5) 'x)
+(deriv '(* (** y 4) (** (+ x 1) 5)) 'x)
