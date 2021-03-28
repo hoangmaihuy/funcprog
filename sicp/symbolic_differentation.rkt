@@ -25,7 +25,10 @@
 )
 
 (define (augend exp)
-  (caddr exp)
+  (if (= (length exp) 3)
+    (caddr exp)
+    (append (list '+ (caddr exp)) (cdddr exp))
+  )
 )
 
 (define (multiplier exp)
@@ -33,7 +36,10 @@
 )
 
 (define (multiplicand exp)
-  (caddr exp)
+  (if (= (length exp) 3)
+    (caddr exp)
+    (append (list '* (caddr exp)) (cdddr exp))
+  )
 )
 
 (define (base exp)
@@ -104,6 +110,6 @@
 (deriv '(+ x 3) 'x)
 (deriv '(* 2 x) 'x)
 (deriv '(* x y) 'x)
-(deriv '(* (* x y) (+ x 3)) 'x)
+(deriv '(* x y (+ x 3)) 'x)
 (deriv '(** x 5) 'x)
 (deriv '(* (** y 4) (** (+ x 1) 5)) 'x)
