@@ -3,7 +3,8 @@
 
 (define env (scheme-report-environment 5))
 (eval  ;only after evaluating your count-pairs, the program in the input can use count-pairs
- '(define (count-pairs p)
+ '
+  (define (count-pairs p)
     (define pair-list '())
     (define (count-pairs-iter p)
       (if (and 
