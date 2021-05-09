@@ -1,6 +1,5 @@
 #lang racket
-(require r5rs)
-(require racket/trace)
+(require r5rs)
 
 
 ;---global define
@@ -356,13 +355,12 @@
   (let ([conds (and-conditions exp)])
     (lambda (env)
       (define (cond-loop conds)
-        ;(displayln conds)
-        (if (last-exp? conds)
-          ((analyze (car conds)) env)
+        (if (null? conds)
+          true
           (let ([result ((analyze (car conds)) env)])
             (if (true? result)
               (cond-loop (cdr conds))
-              'false
+              false
             )
           )
         )
@@ -384,11 +382,11 @@
   (let ([conds (or-conditions exp)])
     (lambda (env)
       (define (cond-loop conds)
-        (if (last-exp? conds)
-          ((analyze (first-exp conds)) env)
+        (if (null? conds)
+          false
           (let ([result ((analyze (first-exp conds)) env)])
             (if (true? result)
-              'true
+              true
               (cond-loop (rest-exps conds))
             )
           )
@@ -417,6 +415,16 @@
 
 (define (let-body exp)
   (cddr exp)
+)
+
+(define (let->combination exp)
+  (make-application
+    (make-lambda 
+      (let-parameters exp)
+      (let-body exp)
+    )
+    (let-initializations exp)
+  )
 )
 
 (define (analyze-let exp)
@@ -564,6 +572,10 @@
   (pair? exp)
 )
 
+(define (make-application operator operands)
+  (cons operator operands)
+)
+
 (define (operator exp)
   (car exp)
 )
@@ -624,7 +636,7 @@
     [(if? exp) (analyze-if exp)]
     [(and? exp) (analyze-and exp)]
     [(or? exp) (analyze-or exp)]
-    [(let? exp) (analyze-let exp)]
+    [(let? exp) (analyze (let->combination exp))]
     [(lambda? exp) (analyze-lambda exp)]
     [(begin? exp) (analyze-sequence (begin-actions exp))]
     [(cond? exp) (analyze (cond->if exp))]
@@ -633,7 +645,7 @@
   )
 )
 
-(define (eval exp env)
+(define (evaluate exp env)
   ((analyze exp) env)
 )
 
@@ -653,17 +665,20 @@
 ;---helper procedures
 
 (define (user-print object)
-  (if (eq? object (void))
-    (void)
-    (displayln object)
-  )
-)
+   (if (compound-procedure? object)
+       (display (list 'compound-procedure
+                      (procedure-parameters object)
+                      (procedure-body object)
+                      '<procedure-env>))
+       (if (eq? object (void))
+           object
+           (begin (display object)(newline)))))
 
 (define (driver-loop)
   (let ([input (read)])
     (if (eq? input eof)
       (void)
-      (let ([output (eval input glb-env)])
+      (let ([output (evaluate input glb-env)])
         (user-print output)
         (driver-loop)
       )

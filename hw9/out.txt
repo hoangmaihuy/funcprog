@@ -1,0 +1,1208 @@
+>(execute-application
+  #0=(mcons
+      'procedure
+      (mcons
+       (mcons 'a1 (mcons 'a2 '()))
+       (mcons
+        #<procedure:...imple_scheme.rkt:338:4>
+        (mcons
+         #1=(mcons
+             (mcons
+              (mcons
+               'deriv
+               (mcons
+                'expo?
+                (mcons
+                 'expo-e
+                 (mcons
+                  'expo-base
+                  (mcons
+                   'make-expo
+                   (mcons
+                    'product?
+                    (mcons
+                     'multiplicand
+                     (mcons
+                      'multiplier
+                      (mcons
+                       'make-product
+                       (mcons
+                        'make-sum
+                        (mcons
+                         'sum?
+                         (mcons
+                          'augend
+                          (mcons
+                           'addend
+                           (mcons
+                            '=number?
+                            (mcons
+                             'same-variable?
+                             (mcons
+                              'variable?
+                              (mcons
+                               'false
+                               (mcons
+                                'true
+                                (mcons
+                                 'car
+                                 (mcons
+                                  'cdr
+                                  (mcons
+                                   'cons
+                                   (mcons
+                                    'cadr
+                                    (mcons
+                                     'cddr
+                                     (mcons
+                                      'caddr
+                                      (mcons
+                                       'cdddr
+                                       (mcons
+                                        'cadddr
+                                        (mcons
+                                         'cddddr
+                                         (mcons
+                                          'null?
+                                          (mcons
+                                           '+
+                                           (mcons
+                                            '-
+                                            (mcons
+                                             '*
+                                             (mcons
+                                              '/
+                                              (mcons
+                                               '>
+                                               (mcons
+                                                '>=
+                                                (mcons
+                                                 '<
+                                                 (mcons
+                                                  '<=
+                                                  (mcons
+                                                   '=
+                                                   (mcons
+                                                    'eq?
+                                                    (mcons
+                                                     'equal?
+                                                     (mcons
+                                                      'symbol?
+                                                      (mcons
+                                                       'number?
+                                                       (mcons
+                                                        'pair?
+                                                        (mcons
+                                                         'sqrt
+                                                         (mcons
+                                                          'remainder
+                                                          (mcons
+                                                           'not
+                                                           (mcons
+                                                            'length
+                                                            (mcons
+                                                             'append
+                                                             (mcons
+                                                              'map
+                                                              (mcons
+                                                               'filter
+                                                               (mcons
+                                                                'list
+                                                                '()))))))))))))))))))))))))))))))))))))))))))))))))))
+              (mcons
+               (mcons
+                'procedure
+                (mcons
+                 (mcons 'exp (mcons 'var '()))
+                 (mcons
+                  #<procedure:...imple_scheme.rkt:338:4>
+                  (mcons #1# '()))))
+               (mcons
+                (mcons
+                 'procedure
+                 (mcons
+                  (mcons 's '())
+                  (mcons
+                   #<procedure:...imple_scheme.rkt:357:4>
+                   (mcons #1# '()))))
+                (mcons
+                 (mcons
+                  'procedure
+                  (mcons
+                   (mcons 's '())
+                   (mcons
+                    #<procedure:...imple_scheme.rkt:604:4>
+                    (mcons #1# '()))))
+                 (mcons
+                  (mcons
+                   'procedure
+                   (mcons
+                    (mcons 's '())
+                    (mcons
+                     #<procedure:...imple_scheme.rkt:604:4>
+                     (mcons #1# '()))))
+                  (mcons
+                   (mcons
+                    'procedure
+                    (mcons
+                     (mcons 'x (mcons 'n '()))
+                     (mcons
+                      #<procedure:...imple_scheme.rkt:604:4>
+                      (mcons #1# '()))))
+                   (mcons
+                    (mcons
+                     'procedure
+                     (mcons
+                      (mcons 'x '())
+                      (mcons
+                       #<procedure:...imple_scheme.rkt:338:4>
+                       (mcons #1# '()))))
+                    (mcons
+                     (mcons
+                      'procedure
+                      (mcons
+                       (mcons 's '())
+                       (mcons
+                        #<procedure:...imple_scheme.rkt:338:4>
+                        (mcons #1# '()))))
+                     (mcons
+                      (mcons
+                       'procedure
+                       (mcons
+                        (mcons 's '())
+                        (mcons
+                         #<procedure:...imple_scheme.rkt:604:4>
+                         (mcons #1# '()))))
+                      (mcons
+                       #0#
+                       (mcons
+                        (mcons
+                         'procedure
+                         (mcons
+                          (mcons 'a1 (mcons 'a2 '()))
+                          (mcons
+                           #<procedure:...imple_scheme.rkt:338:4>
+                           (mcons #1# '()))))
+                        (mcons
+                         (mcons
+                          'procedure
+                          (mcons
+                           (mcons 'x '())
+                           (mcons
+                            #<procedure:...imple_scheme.rkt:338:4>
+                            (mcons #1# '()))))
+                         (mcons
+                          (mcons
+                           'procedure
+                           (mcons
+                            (mcons 's '())
+                            (mcons
+                             #<procedure:...imple_scheme.rkt:338:4>
+                             (mcons #1# '()))))
+                          (mcons
+                           (mcons
+                            'procedure
+                            (mcons
+                             (mcons 's '())
+                             (mcons
+                              #<procedure:...imple_scheme.rkt:506:4>
+                              (mcons #1# '()))))
+                           (mcons
+                            (mcons
+                             'procedure
+                             (mcons
+                              (mcons 'exp (mcons 'num '()))
+                              (mcons
+                               #<procedure:...imple_scheme.rkt:357:4>
+                               (mcons #1# '()))))
+                            (mcons
+                             (mcons
+                              'procedure
+                              (mcons
+                               (mcons 'v1 (mcons 'v2 '()))
+                               (mcons
+                                #<procedure:...imple_scheme.rkt:357:4>
+                                (mcons #1# '()))))
+                             (mcons
+                              (mcons
+                               'procedure
+                               (mcons
+                                (mcons 'x '())
+                                (mcons
+                                 #<procedure:...imple_scheme.rkt:604:4>
+                                 (mcons #1# '()))))
+                              (mcons
+                               #f
+                               (mcons
+                                #t
+                                (mcons
+                                 (mcons
+                                  'primitive
+                                  (mcons #<procedure:mcar> '()))
+                                 (mcons
+                                  (mcons
+                                   'primitive
+                                   (mcons #<procedure:mcdr> '()))
+                                  (mcons
+                                   (mcons
+                                    'primitive
+                                    (mcons #<procedure:mcons> '()))
+                                   (mcons
+                                    (mcons
+                                     'primitive
+                                     (mcons #<procedure:mcadr> '()))
+                                    (mcons
+                                     (mcons
+                                      'primitive
+                                      (mcons #<procedure:mcddr> '()))
+                                     (mcons
+                                      (mcons
+                                       'primitive
+                                       (mcons #<procedure:mcaddr> '()))
+                                      (mcons
+                                       (mcons
+                                        'primitive
+                                        (mcons #<procedure:mcdddr> '()))
+                                       (mcons
+                                        (mcons
+                                         'primitive
+                                         (mcons #<procedure:mcadddr> '()))
+                                        (mcons
+                                         (mcons
+                                          'primitive
+                                          (mcons #<procedure:mcddddr> '()))
+                                         (mcons
+                                          (mcons
+                                           'primitive
+                                           (mcons #<procedure:null?> '()))
+                                          (mcons
+                                           (mcons
+                                            'primitive
+                                            (mcons #<procedure:+> '()))
+                                           (mcons
+                                            (mcons
+                                             'primitive
+                                             (mcons #<procedure:-> '()))
+                                            (mcons
+                                             (mcons
+                                              'primitive
+                                              (mcons #<procedure:*> '()))
+                                             (mcons
+                                              (mcons
+                                               'primitive
+                                               (mcons #<procedure:/> '()))
+                                              (mcons
+                                               (mcons
+                                                'primitive
+                                                (mcons #<procedure:>> '()))
+                                               (mcons
+                                                (mcons
+                                                 'primitive
+                                                 (mcons #<procedure:>=> '()))
+                                                (mcons
+                                                 (mcons
+                                                  'primitive
+                                                  (mcons #<procedure:<> '()))
+                                                 (mcons
+                                                  (mcons
+                                                   'primitive
+                                                   (mcons #<procedure:<=> '()))
+                                                  (mcons
+                                                   (mcons
+                                                    'primitive
+                                                    (mcons #<procedure:=> '()))
+                                                   (mcons
+                                                    (mcons
+                                                     'primitive
+                                                     (mcons
+                                                      #<procedure:eq?>
+                                                      '()))
+                                                    (mcons
+                                                     (mcons
+                                                      'primitive
+                                                      (mcons
+                                                       #<procedure:equal?>
+                                                       '()))
+                                                     (mcons
+                                                      (mcons
+                                                       'primitive
+                                                       (mcons
+                                                        #<procedure:symbol?>
+                                                        '()))
+                                                      (mcons
+                                                       (mcons
+                                                        'primitive
+                                                        (mcons
+                                                         #<procedure:number?>
+                                                         '()))
+                                                       (mcons
+                                                        (mcons
+                                                         'primitive
+                                                         (mcons
+                                                          #<procedure:mpair?>
+                                                          '()))
+                                                        (mcons
+                                                         (mcons
+                                                          'primitive
+                                                          (mcons
+                                                           #<procedure:sqrt>
+                                                           '()))
+                                                         (mcons
+                                                          (mcons
+                                                           'primitive
+                                                           (mcons
+                                                            #<procedure:remainder>
+                                                            '()))
+                                                          (mcons
+                                                           (mcons
+                                                            'primitive
+                                                            (mcons
+                                                             #<procedure:not>
+                                                             '()))
+                                                           (mcons
+                                                            (mcons
+                                                             'primitive
+                                                             (mcons
+                                                              #<procedure:mlength>
+                                                              '()))
+                                                            (mcons
+                                                             (mcons
+                                                              'primitive
+                                                              (mcons
+                                                               #<procedure:mappend>
+                                                               '()))
+                                                             (mcons
+                                                              (mcons
+                                                               'primitive
+                                                               (mcons
+                                                                #<procedure:mmap>
+                                                                '()))
+                                                              (mcons
+                                                               (mcons
+                                                                'primitive
+                                                                (mcons
+                                                                 #<procedure:filter>
+                                                                 '()))
+                                                               (mcons
+                                                                (mcons
+                                                                 'primitive
+                                                                 (mcons
+                                                                  #<procedure:mlist>
+                                                                  '()))
+                                                                '())))))))))))))))))))))))))))))))))))))))))))))))))))
+             #<procedure:the-empty-environment>)
+         '()))))
+  (mcons 3 (mcons 'x '())))
+> (execute-application
+   #0=(mcons
+       'procedure
+       (mcons
+        (mcons 'exp (mcons 'num '()))
+        (mcons
+         #<procedure:...imple_scheme.rkt:357:4>
+         (mcons
+          #1=(mcons
+              (mcons
+               (mcons
+                'deriv
+                (mcons
+                 'expo?
+                 (mcons
+                  'expo-e
+                  (mcons
+                   'expo-base
+                   (mcons
+                    'make-expo
+                    (mcons
+                     'product?
+                     (mcons
+                      'multiplicand
+                      (mcons
+                       'multiplier
+                       (mcons
+                        'make-product
+                        (mcons
+                         'make-sum
+                         (mcons
+                          'sum?
+                          (mcons
+                           'augend
+                           (mcons
+                            'addend
+                            (mcons
+                             '=number?
+                             (mcons
+                              'same-variable?
+                              (mcons
+                               'variable?
+                               (mcons
+                                'false
+                                (mcons
+                                 'true
+                                 (mcons
+                                  'car
+                                  (mcons
+                                   'cdr
+                                   (mcons
+                                    'cons
+                                    (mcons
+                                     'cadr
+                                     (mcons
+                                      'cddr
+                                      (mcons
+                                       'caddr
+                                       (mcons
+                                        'cdddr
+                                        (mcons
+                                         'cadddr
+                                         (mcons
+                                          'cddddr
+                                          (mcons
+                                           'null?
+                                           (mcons
+                                            '+
+                                            (mcons
+                                             '-
+                                             (mcons
+                                              '*
+                                              (mcons
+                                               '/
+                                               (mcons
+                                                '>
+                                                (mcons
+                                                 '>=
+                                                 (mcons
+                                                  '<
+                                                  (mcons
+                                                   '<=
+                                                   (mcons
+                                                    '=
+                                                    (mcons
+                                                     'eq?
+                                                     (mcons
+                                                      'equal?
+                                                      (mcons
+                                                       'symbol?
+                                                       (mcons
+                                                        'number?
+                                                        (mcons
+                                                         'pair?
+                                                         (mcons
+                                                          'sqrt
+                                                          (mcons
+                                                           'remainder
+                                                           (mcons
+                                                            'not
+                                                            (mcons
+                                                             'length
+                                                             (mcons
+                                                              'append
+                                                              (mcons
+                                                               'map
+                                                               (mcons
+                                                                'filter
+                                                                (mcons
+                                                                 'list
+                                                                 '()))))))))))))))))))))))))))))))))))))))))))))))))))
+               (mcons
+                (mcons
+                 'procedure
+                 (mcons
+                  (mcons 'exp (mcons 'var '()))
+                  (mcons
+                   #<procedure:...imple_scheme.rkt:338:4>
+                   (mcons #1# '()))))
+                (mcons
+                 (mcons
+                  'procedure
+                  (mcons
+                   (mcons 's '())
+                   (mcons
+                    #<procedure:...imple_scheme.rkt:357:4>
+                    (mcons #1# '()))))
+                 (mcons
+                  (mcons
+                   'procedure
+                   (mcons
+                    (mcons 's '())
+                    (mcons
+                     #<procedure:...imple_scheme.rkt:604:4>
+                     (mcons #1# '()))))
+                  (mcons
+                   (mcons
+                    'procedure
+                    (mcons
+                     (mcons 's '())
+                     (mcons
+                      #<procedure:...imple_scheme.rkt:604:4>
+                      (mcons #1# '()))))
+                   (mcons
+                    (mcons
+                     'procedure
+                     (mcons
+                      (mcons 'x (mcons 'n '()))
+                      (mcons
+                       #<procedure:...imple_scheme.rkt:604:4>
+                       (mcons #1# '()))))
+                    (mcons
+                     (mcons
+                      'procedure
+                      (mcons
+                       (mcons 'x '())
+                       (mcons
+                        #<procedure:...imple_scheme.rkt:338:4>
+                        (mcons #1# '()))))
+                     (mcons
+                      (mcons
+                       'procedure
+                       (mcons
+                        (mcons 's '())
+                        (mcons
+                         #<procedure:...imple_scheme.rkt:338:4>
+                         (mcons #1# '()))))
+                      (mcons
+                       (mcons
+                        'procedure
+                        (mcons
+                         (mcons 's '())
+                         (mcons
+                          #<procedure:...imple_scheme.rkt:604:4>
+                          (mcons #1# '()))))
+                       (mcons
+                        (mcons
+                         'procedure
+                         (mcons
+                          (mcons 'a1 (mcons 'a2 '()))
+                          (mcons
+                           #<procedure:...imple_scheme.rkt:338:4>
+                           (mcons #1# '()))))
+                        (mcons
+                         (mcons
+                          'procedure
+                          (mcons
+                           (mcons 'a1 (mcons 'a2 '()))
+                           (mcons
+                            #<procedure:...imple_scheme.rkt:338:4>
+                            (mcons #1# '()))))
+                         (mcons
+                          (mcons
+                           'procedure
+                           (mcons
+                            (mcons 'x '())
+                            (mcons
+                             #<procedure:...imple_scheme.rkt:338:4>
+                             (mcons #1# '()))))
+                          (mcons
+                           (mcons
+                            'procedure
+                            (mcons
+                             (mcons 's '())
+                             (mcons
+                              #<procedure:...imple_scheme.rkt:338:4>
+                              (mcons #1# '()))))
+                           (mcons
+                            (mcons
+                             'procedure
+                             (mcons
+                              (mcons 's '())
+                              (mcons
+                               #<procedure:...imple_scheme.rkt:506:4>
+                               (mcons #1# '()))))
+                            (mcons
+                             #0#
+                             (mcons
+                              (mcons
+                               'procedure
+                               (mcons
+                                (mcons 'v1 (mcons 'v2 '()))
+                                (mcons
+                                 #<procedure:...imple_scheme.rkt:357:4>
+                                 (mcons #1# '()))))
+                              (mcons
+                               (mcons
+                                'procedure
+                                (mcons
+                                 (mcons 'x '())
+                                 (mcons
+                                  #<procedure:...imple_scheme.rkt:604:4>
+                                  (mcons #1# '()))))
+                               (mcons
+                                #f
+                                (mcons
+                                 #t
+                                 (mcons
+                                  (mcons
+                                   'primitive
+                                   (mcons #<procedure:mcar> '()))
+                                  (mcons
+                                   (mcons
+                                    'primitive
+                                    (mcons #<procedure:mcdr> '()))
+                                   (mcons
+                                    (mcons
+                                     'primitive
+                                     (mcons #<procedure:mcons> '()))
+                                    (mcons
+                                     (mcons
+                                      'primitive
+                                      (mcons #<procedure:mcadr> '()))
+                                     (mcons
+                                      (mcons
+                                       'primitive
+                                       (mcons #<procedure:mcddr> '()))
+                                      (mcons
+                                       (mcons
+                                        'primitive
+                                        (mcons #<procedure:mcaddr> '()))
+                                       (mcons
+                                        (mcons
+                                         'primitive
+                                         (mcons #<procedure:mcdddr> '()))
+                                        (mcons
+                                         (mcons
+                                          'primitive
+                                          (mcons #<procedure:mcadddr> '()))
+                                         (mcons
+                                          (mcons
+                                           'primitive
+                                           (mcons #<procedure:mcddddr> '()))
+                                          (mcons
+                                           (mcons
+                                            'primitive
+                                            (mcons #<procedure:null?> '()))
+                                           (mcons
+                                            (mcons
+                                             'primitive
+                                             (mcons #<procedure:+> '()))
+                                            (mcons
+                                             (mcons
+                                              'primitive
+                                              (mcons #<procedure:-> '()))
+                                             (mcons
+                                              (mcons
+                                               'primitive
+                                               (mcons #<procedure:*> '()))
+                                              (mcons
+                                               (mcons
+                                                'primitive
+                                                (mcons #<procedure:/> '()))
+                                               (mcons
+                                                (mcons
+                                                 'primitive
+                                                 (mcons #<procedure:>> '()))
+                                                (mcons
+                                                 (mcons
+                                                  'primitive
+                                                  (mcons #<procedure:>=> '()))
+                                                 (mcons
+                                                  (mcons
+                                                   'primitive
+                                                   (mcons #<procedure:<> '()))
+                                                  (mcons
+                                                   (mcons
+                                                    'primitive
+                                                    (mcons
+                                                     #<procedure:<=>
+                                                     '()))
+                                                   (mcons
+                                                    (mcons
+                                                     'primitive
+                                                     (mcons
+                                                      #<procedure:=>
+                                                      '()))
+                                                    (mcons
+                                                     (mcons
+                                                      'primitive
+                                                      (mcons
+                                                       #<procedure:eq?>
+                                                       '()))
+                                                     (mcons
+                                                      (mcons
+                                                       'primitive
+                                                       (mcons
+                                                        #<procedure:equal?>
+                                                        '()))
+                                                      (mcons
+                                                       (mcons
+                                                        'primitive
+                                                        (mcons
+                                                         #<procedure:symbol?>
+                                                         '()))
+                                                       (mcons
+                                                        (mcons
+                                                         'primitive
+                                                         (mcons
+                                                          #<procedure:number?>
+                                                          '()))
+                                                        (mcons
+                                                         (mcons
+                                                          'primitive
+                                                          (mcons
+                                                           #<procedure:mpair?>
+                                                           '()))
+                                                         (mcons
+                                                          (mcons
+                                                           'primitive
+                                                           (mcons
+                                                            #<procedure:sqrt>
+                                                            '()))
+                                                          (mcons
+                                                           (mcons
+                                                            'primitive
+                                                            (mcons
+                                                             #<procedure:remainder>
+                                                             '()))
+                                                           (mcons
+                                                            (mcons
+                                                             'primitive
+                                                             (mcons
+                                                              #<procedure:not>
+                                                              '()))
+                                                            (mcons
+                                                             (mcons
+                                                              'primitive
+                                                              (mcons
+                                                               #<procedure:mlength>
+                                                               '()))
+                                                             (mcons
+                                                              (mcons
+                                                               'primitive
+                                                               (mcons
+                                                                #<procedure:mappend>
+                                                                '()))
+                                                              (mcons
+                                                               (mcons
+                                                                'primitive
+                                                                (mcons
+                                                                 #<procedure:mmap>
+                                                                 '()))
+                                                               (mcons
+                                                                (mcons
+                                                                 'primitive
+                                                                 (mcons
+                                                                  #<procedure:filter>
+                                                                  '()))
+                                                                (mcons
+                                                                 (mcons
+                                                                  'primitive
+                                                                  (mcons
+                                                                   #<procedure:mlist>
+                                                                   '()))
+                                                                 '())))))))))))))))))))))))))))))))))))))))))))))))))))
+              #<procedure:the-empty-environment>)
+          '()))))
+   (mcons 3 (mcons 0 '())))
+> >(execute-application
+    (mcons 'primitive (mcons #<procedure:number?> '()))
+    (mcons 3 '()))
+< <#t
+> (execute-application
+   (mcons 'primitive (mcons #<procedure:=> '()))
+   (mcons 3 (mcons 0 '())))
+< #f
+> (execute-application
+   #0=(mcons
+       'procedure
+       (mcons
+        (mcons 'exp (mcons 'num '()))
+        (mcons
+         #<procedure:...imple_scheme.rkt:357:4>
+         (mcons
+          #1=(mcons
+              (mcons
+               (mcons
+                'deriv
+                (mcons
+                 'expo?
+                 (mcons
+                  'expo-e
+                  (mcons
+                   'expo-base
+                   (mcons
+                    'make-expo
+                    (mcons
+                     'product?
+                     (mcons
+                      'multiplicand
+                      (mcons
+                       'multiplier
+                       (mcons
+                        'make-product
+                        (mcons
+                         'make-sum
+                         (mcons
+                          'sum?
+                          (mcons
+                           'augend
+                           (mcons
+                            'addend
+                            (mcons
+                             '=number?
+                             (mcons
+                              'same-variable?
+                              (mcons
+                               'variable?
+                               (mcons
+                                'false
+                                (mcons
+                                 'true
+                                 (mcons
+                                  'car
+                                  (mcons
+                                   'cdr
+                                   (mcons
+                                    'cons
+                                    (mcons
+                                     'cadr
+                                     (mcons
+                                      'cddr
+                                      (mcons
+                                       'caddr
+                                       (mcons
+                                        'cdddr
+                                        (mcons
+                                         'cadddr
+                                         (mcons
+                                          'cddddr
+                                          (mcons
+                                           'null?
+                                           (mcons
+                                            '+
+                                            (mcons
+                                             '-
+                                             (mcons
+                                              '*
+                                              (mcons
+                                               '/
+                                               (mcons
+                                                '>
+                                                (mcons
+                                                 '>=
+                                                 (mcons
+                                                  '<
+                                                  (mcons
+                                                   '<=
+                                                   (mcons
+                                                    '=
+                                                    (mcons
+                                                     'eq?
+                                                     (mcons
+                                                      'equal?
+                                                      (mcons
+                                                       'symbol?
+                                                       (mcons
+                                                        'number?
+                                                        (mcons
+                                                         'pair?
+                                                         (mcons
+                                                          'sqrt
+                                                          (mcons
+                                                           'remainder
+                                                           (mcons
+                                                            'not
+                                                            (mcons
+                                                             'length
+                                                             (mcons
+                                                              'append
+                                                              (mcons
+                                                               'map
+                                                               (mcons
+                                                                'filter
+                                                                (mcons
+                                                                 'list
+                                                                 '()))))))))))))))))))))))))))))))))))))))))))))))))))
+               (mcons
+                (mcons
+                 'procedure
+                 (mcons
+                  (mcons 'exp (mcons 'var '()))
+                  (mcons
+                   #<procedure:...imple_scheme.rkt:338:4>
+                   (mcons #1# '()))))
+                (mcons
+                 (mcons
+                  'procedure
+                  (mcons
+                   (mcons 's '())
+                   (mcons
+                    #<procedure:...imple_scheme.rkt:357:4>
+                    (mcons #1# '()))))
+                 (mcons
+                  (mcons
+                   'procedure
+                   (mcons
+                    (mcons 's '())
+                    (mcons
+                     #<procedure:...imple_scheme.rkt:604:4>
+                     (mcons #1# '()))))
+                  (mcons
+                   (mcons
+                    'procedure
+                    (mcons
+                     (mcons 's '())
+                     (mcons
+                      #<procedure:...imple_scheme.rkt:604:4>
+                      (mcons #1# '()))))
+                   (mcons
+                    (mcons
+                     'procedure
+                     (mcons
+                      (mcons 'x (mcons 'n '()))
+                      (mcons
+                       #<procedure:...imple_scheme.rkt:604:4>
+                       (mcons #1# '()))))
+                    (mcons
+                     (mcons
+                      'procedure
+                      (mcons
+                       (mcons 'x '())
+                       (mcons
+                        #<procedure:...imple_scheme.rkt:338:4>
+                        (mcons #1# '()))))
+                     (mcons
+                      (mcons
+                       'procedure
+                       (mcons
+                        (mcons 's '())
+                        (mcons
+                         #<procedure:...imple_scheme.rkt:338:4>
+                         (mcons #1# '()))))
+                      (mcons
+                       (mcons
+                        'procedure
+                        (mcons
+                         (mcons 's '())
+                         (mcons
+                          #<procedure:...imple_scheme.rkt:604:4>
+                          (mcons #1# '()))))
+                       (mcons
+                        (mcons
+                         'procedure
+                         (mcons
+                          (mcons 'a1 (mcons 'a2 '()))
+                          (mcons
+                           #<procedure:...imple_scheme.rkt:338:4>
+                           (mcons #1# '()))))
+                        (mcons
+                         (mcons
+                          'procedure
+                          (mcons
+                           (mcons 'a1 (mcons 'a2 '()))
+                           (mcons
+                            #<procedure:...imple_scheme.rkt:338:4>
+                            (mcons #1# '()))))
+                         (mcons
+                          (mcons
+                           'procedure
+                           (mcons
+                            (mcons 'x '())
+                            (mcons
+                             #<procedure:...imple_scheme.rkt:338:4>
+                             (mcons #1# '()))))
+                          (mcons
+                           (mcons
+                            'procedure
+                            (mcons
+                             (mcons 's '())
+                             (mcons
+                              #<procedure:...imple_scheme.rkt:338:4>
+                              (mcons #1# '()))))
+                           (mcons
+                            (mcons
+                             'procedure
+                             (mcons
+                              (mcons 's '())
+                              (mcons
+                               #<procedure:...imple_scheme.rkt:506:4>
+                               (mcons #1# '()))))
+                            (mcons
+                             #0#
+                             (mcons
+                              (mcons
+                               'procedure
+                               (mcons
+                                (mcons 'v1 (mcons 'v2 '()))
+                                (mcons
+                                 #<procedure:...imple_scheme.rkt:357:4>
+                                 (mcons #1# '()))))
+                              (mcons
+                               (mcons
+                                'procedure
+                                (mcons
+                                 (mcons 'x '())
+                                 (mcons
+                                  #<procedure:...imple_scheme.rkt:604:4>
+                                  (mcons #1# '()))))
+                               (mcons
+                                #f
+                                (mcons
+                                 #t
+                                 (mcons
+                                  (mcons
+                                   'primitive
+                                   (mcons #<procedure:mcar> '()))
+                                  (mcons
+                                   (mcons
+                                    'primitive
+                                    (mcons #<procedure:mcdr> '()))
+                                   (mcons
+                                    (mcons
+                                     'primitive
+                                     (mcons #<procedure:mcons> '()))
+                                    (mcons
+                                     (mcons
+                                      'primitive
+                                      (mcons #<procedure:mcadr> '()))
+                                     (mcons
+                                      (mcons
+                                       'primitive
+                                       (mcons #<procedure:mcddr> '()))
+                                      (mcons
+                                       (mcons
+                                        'primitive
+                                        (mcons #<procedure:mcaddr> '()))
+                                       (mcons
+                                        (mcons
+                                         'primitive
+                                         (mcons #<procedure:mcdddr> '()))
+                                        (mcons
+                                         (mcons
+                                          'primitive
+                                          (mcons #<procedure:mcadddr> '()))
+                                         (mcons
+                                          (mcons
+                                           'primitive
+                                           (mcons #<procedure:mcddddr> '()))
+                                          (mcons
+                                           (mcons
+                                            'primitive
+                                            (mcons #<procedure:null?> '()))
+                                           (mcons
+                                            (mcons
+                                             'primitive
+                                             (mcons #<procedure:+> '()))
+                                            (mcons
+                                             (mcons
+                                              'primitive
+                                              (mcons #<procedure:-> '()))
+                                             (mcons
+                                              (mcons
+                                               'primitive
+                                               (mcons #<procedure:*> '()))
+                                              (mcons
+                                               (mcons
+                                                'primitive
+                                                (mcons #<procedure:/> '()))
+                                               (mcons
+                                                (mcons
+                                                 'primitive
+                                                 (mcons #<procedure:>> '()))
+                                                (mcons
+                                                 (mcons
+                                                  'primitive
+                                                  (mcons #<procedure:>=> '()))
+                                                 (mcons
+                                                  (mcons
+                                                   'primitive
+                                                   (mcons #<procedure:<> '()))
+                                                  (mcons
+                                                   (mcons
+                                                    'primitive
+                                                    (mcons
+                                                     #<procedure:<=>
+                                                     '()))
+                                                   (mcons
+                                                    (mcons
+                                                     'primitive
+                                                     (mcons
+                                                      #<procedure:=>
+                                                      '()))
+                                                    (mcons
+                                                     (mcons
+                                                      'primitive
+                                                      (mcons
+                                                       #<procedure:eq?>
+                                                       '()))
+                                                     (mcons
+                                                      (mcons
+                                                       'primitive
+                                                       (mcons
+                                                        #<procedure:equal?>
+                                                        '()))
+                                                      (mcons
+                                                       (mcons
+                                                        'primitive
+                                                        (mcons
+                                                         #<procedure:symbol?>
+                                                         '()))
+                                                       (mcons
+                                                        (mcons
+                                                         'primitive
+                                                         (mcons
+                                                          #<procedure:number?>
+                                                          '()))
+                                                        (mcons
+                                                         (mcons
+                                                          'primitive
+                                                          (mcons
+                                                           #<procedure:mpair?>
+                                                           '()))
+                                                         (mcons
+                                                          (mcons
+                                                           'primitive
+                                                           (mcons
+                                                            #<procedure:sqrt>
+                                                            '()))
+                                                          (mcons
+                                                           (mcons
+                                                            'primitive
+                                                            (mcons
+                                                             #<procedure:remainder>
+                                                             '()))
+                                                           (mcons
+                                                            (mcons
+                                                             'primitive
+                                                             (mcons
+                                                              #<procedure:not>
+                                                              '()))
+                                                            (mcons
+                                                             (mcons
+                                                              'primitive
+                                                              (mcons
+                                                               #<procedure:mlength>
+                                                               '()))
+                                                             (mcons
+                                                              (mcons
+                                                               'primitive
+                                                               (mcons
+                                                                #<procedure:mappend>
+                                                                '()))
+                                                              (mcons
+                                                               (mcons
+                                                                'primitive
+                                                                (mcons
+                                                                 #<procedure:mmap>
+                                                                 '()))
+                                                               (mcons
+                                                                (mcons
+                                                                 'primitive
+                                                                 (mcons
+                                                                  #<procedure:filter>
+                                                                  '()))
+                                                                (mcons
+                                                                 (mcons
+                                                                  'primitive
+                                                                  (mcons
+                                                                   #<procedure:mlist>
+                                                                   '()))
+                                                                 '())))))))))))))))))))))))))))))))))))))))))))))))))))
+              #<procedure:the-empty-environment>)
+          '()))))
+   (mcons 'x (mcons 0 '())))
+> >(execute-application
+    (mcons 'primitive (mcons #<procedure:number?> '()))
+    (mcons 'x '()))
+< <#f
+< 'false
+<0
+0

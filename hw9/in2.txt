@@ -1,6 +1,14 @@
-(define (f x) 
-  (define (g y)
-    (k y))
-  (define (k z)
-    (+ z 1))
-  (* (g x) x))
+(define (=number? exp num)
+  (and (number? exp) (= exp num)))
+
+(define (make-product a1 a2) 
+  (cond ((=number? a1 0) 0)
+        ((=number? a2 0) 0)
+        ((=number? a1 1) a2)
+        ((=number? a2 1) a1)
+        ((and (number? a1) (number? a2)) (* a1 a2))
+        (else (list a1 '* a2))))
+
+
+(=number? 3 3)
+(make-product 3 'x)
