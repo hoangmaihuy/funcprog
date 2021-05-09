@@ -1,8 +1,10 @@
 #lang racket
 (require r5rs)
+(require racket/trace)
+
 
 ;---global define
-(define apply-primitive-procedure apply)
+(define apply-in-underlying-scheme apply)
 
 (define (tagged-list? exp tag)
   (if (pair? exp)
@@ -219,6 +221,7 @@
   (cond
     [(number? exp) true]
     [(string? exp) true]
+    [(eq? exp '()) true]
     [else false]
   )
 )
@@ -228,7 +231,7 @@
 )
 
 (define (quoted? exp)
-  (tagged-list? expp 'quote)  
+  (tagged-list? exp 'quote)  
 )
 
 (define (text-of-quotation exp)
@@ -291,6 +294,10 @@
   )
 )
 
+(define (make-variable-definition variable value)
+  (list 'define variable value)
+)
+
 (define (analyze-definition exp)
   (let ([var (definition-variable exp)]
         [vproc (analyze (definition-value exp))])
@@ -334,6 +341,95 @@
         (aproc env)
       )
     )      
+  )
+)
+
+(define (and? exp)
+  (tagged-list? exp 'and)
+)
+
+(define (and-conditions exp)
+  (cdr exp)
+)
+
+(define (analyze-and exp)
+  (let ([conds (map analyze (and-conditions exp))])
+    (lambda (env)
+      (define (cond-loop conds)
+        (if (null? conds)
+          'true
+          (let ([result ((analyze (car conds)) env)])
+            (if (true? result)
+              (cond-loop (cdr conds))
+              'false
+            )
+          )
+        )
+      )
+      (cond-loop conds)
+    )
+  )
+)
+
+(define (or? exp)
+  (tagged-list? exp 'or)
+)
+
+(define (or-conditions exp)
+  (cdr exp)
+)
+
+(define (analyze-or exp)
+  (let ([conds (map analyze (or-conditions exp))])
+    (lambda (env)
+      (define (cond-loop conds)
+        (if (null? conds)
+          'false
+          (let ([result ((analyze (car conds)) env)])
+            (if (true? result)
+              'true
+              (cond-loop (cdr conds))
+            )
+          )
+        )
+      )
+      (cond-loop conds)
+    )
+  )
+)
+
+(define (let? exp)
+  (tagged-list? exp 'let)
+)
+
+(define (let-definitions exp)
+  (cadr exp)
+)
+
+(define (let-parameters exp)
+  (map car (let-definitions exp))
+)
+
+(define (let-initializations exp)
+  (map cadr (let-definitions exp))
+)
+
+(define (let-body exp)
+  (cddr exp)
+)
+
+(define (analyze-let exp)
+  (let ([vars (let-parameters exp)]
+        [iprocs (map analyze (let-initializations exp))]
+        [bproc (analyze-sequence (let-body exp))])
+    (lambda (env)
+      (let ([fproc (make-procedure vars bproc env)])
+        (execute-application
+          (fproc env)
+          (map (lambda (iproc) (iproc env) iprocs))
+        )
+      )
+    )
   )
 )
 
@@ -489,7 +585,7 @@
 
 (define (analyze-application exp)
   (let ([fproc (analyze (operator exp))]
-        [aprocs (analyze (map analyze (operands exp)))])
+        [aprocs (map analyze (operands exp))])
     (lambda (env)
       (execute-application
         (fproc env)
@@ -516,6 +612,7 @@
 )
 
 (define (analyze exp)
+  (displayln exp)
   (cond
     [(self-evaluating? exp) (analyze-self-evaluating exp)]
     [(quoted? exp) (analyze-quoted exp)]
@@ -523,6 +620,9 @@
     [(assignment? exp) (analyze-assignment exp)]
     [(definition? exp) (analyze-definition exp)]
     [(if? exp) (analyze-if exp)]
+    [(and? exp) (analyze-and exp)]
+    [(or? exp) (analyze-or exp)]
+    [(let? exp) (analyze-let exp)]
     [(lambda? exp) (analyze-lambda exp)]
     [(begin? exp) (analyze-sequence (begin-actions exp))]
     [(cond? exp) (analyze (cond->if exp))]
@@ -534,9 +634,16 @@
 (define (eval exp env)
   ((analyze exp) env)
 )
-;---apply procedures
 
+(trace analyze)
+(trace execute-application)
 
+(define (apply-primitive-procedure proc args)
+  (apply-in-underlying-scheme 
+    (primitive-implementation proc)
+    args
+  )
+)
 ;---helper procedures
 
 (define (user-print object)
