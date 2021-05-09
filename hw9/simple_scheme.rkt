@@ -656,6 +656,55 @@
   )
 )
 
+(define (switch? exp)
+  (tagged-list? exp 'switch)
+)
+
+(define (switch-value exp)
+  (cadr exp)
+)
+
+(define (switch-clauses exp)
+  (cddr exp)
+)
+
+(define (switch-clause-value clause)
+  (car clause)
+)
+
+(define (switch-clause-actions clause)
+  (cdr clause)
+)
+
+(define (switch-default-clause? clause)
+  (eq? (car clause) 'default)
+)
+
+(define (analyze-switch exp)
+  (lambda (env)
+    (define (switch-loop result clauses)
+      (if (null? clauses)
+        (error "No default clause: SWITCH")
+        (let ([first (car clauses)]
+              [rest (cdr clauses)])
+          (if (or 
+                (switch-default-clause? first) 
+                (equal? result ((analyze (switch-clause-value first)) env))
+              )
+            ((analyze-sequence (switch-clause-actions first)) env)
+            (switch-loop result rest)
+          )      
+        )
+      )
+    )
+
+    (let ([result ((analyze (switch-value exp)) env)]
+          [clauses (switch-clauses exp)])
+      (switch-loop result clauses)   
+    )
+  )
+)
+
 (define (analyze exp)
   ;(displayln exp)
   (cond
@@ -673,6 +722,7 @@
     [(begin? exp) (analyze-sequence (begin-actions exp))]
     [(cond? exp) (analyze (cond->if exp))]
     [(while? exp) (analyze-while exp)]
+    [(switch? exp) (analyze-switch exp)]
     [(application? exp) (analyze-application exp)]
     [else (error "Unknown expression type: ANALYZE" exp)]
   )
