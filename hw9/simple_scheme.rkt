@@ -55,6 +55,8 @@
     (list 'map map)
     (list 'filter filter)
     (list 'list list) 
+    (list 'display display)
+    (list 'displayln displayln)
   )
 )
 
@@ -624,6 +626,36 @@
   )
 )
 
+(define (while? exp)
+  (tagged-list? exp 'while)
+)
+
+(define (while-predicate exp)
+  (cadr exp)
+)
+
+(define (while-body exp)
+  (cddr exp)
+)
+
+(define (analyze-while exp)
+  (let ([pproc (analyze (while-predicate exp))]
+        [bproc (analyze-sequence (while-body exp))])
+    (lambda (env)
+      (define (while-loop)
+        (if (true? (pproc env))
+          (begin
+            (bproc env)
+            (while-loop)
+          )
+          (void)
+        )
+      )
+      (while-loop)
+    )
+  )
+)
+
 (define (analyze exp)
   ;(displayln exp)
   (cond
@@ -640,6 +672,7 @@
     [(lambda? exp) (analyze-lambda exp)]
     [(begin? exp) (analyze-sequence (begin-actions exp))]
     [(cond? exp) (analyze (cond->if exp))]
+    [(while? exp) (analyze-while exp)]
     [(application? exp) (analyze-application exp)]
     [else (error "Unknown expression type: ANALYZE" exp)]
   )
