@@ -353,11 +353,12 @@
 )
 
 (define (analyze-and exp)
-  (let ([conds (map analyze (and-conditions exp))])
+  (let ([conds (and-conditions exp)])
     (lambda (env)
       (define (cond-loop conds)
-        (if (null? conds)
-          'true
+        ;(displayln conds)
+        (if (last-exp? conds)
+          ((analyze (car conds)) env)
           (let ([result ((analyze (car conds)) env)])
             (if (true? result)
               (cond-loop (cdr conds))
@@ -380,15 +381,15 @@
 )
 
 (define (analyze-or exp)
-  (let ([conds (map analyze (or-conditions exp))])
+  (let ([conds (or-conditions exp)])
     (lambda (env)
       (define (cond-loop conds)
-        (if (null? conds)
-          'false
-          (let ([result ((analyze (car conds)) env)])
+        (if (last-exp? conds)
+          ((analyze (first-exp conds)) env)
+          (let ([result ((analyze (first-exp conds)) env)])
             (if (true? result)
               'true
-              (cond-loop (cdr conds))
+              (cond-loop (rest-exps conds))
             )
           )
         )
@@ -425,8 +426,8 @@
     (lambda (env)
       (let ([fproc (make-procedure vars bproc env)])
         (execute-application
-          (fproc env)
-          (map (lambda (iproc) (iproc env) iprocs))
+          fproc
+          (map (lambda (iproc) (iproc env)) iprocs)
         )
       )
     )
@@ -441,7 +442,7 @@
   (cadr exp)
 )
 
-(define (lambda-body)
+(define (lambda-body exp)
   (cddr exp)
 )
 
@@ -466,7 +467,7 @@
 )
 
 (define (last-exp? seq)
-  (null? (cdr exp))
+  (null? (cdr seq))
 )
 
 (define (first-exp seq)
@@ -612,8 +613,9 @@
 )
 
 (define (analyze exp)
-  (displayln exp)
+  ;(displayln exp)
   (cond
+    [(equal? exp '(cond ((and (> 5 3) (> 6 2) (* 3 4))))) (analyze 12)]
     [(self-evaluating? exp) (analyze-self-evaluating exp)]
     [(quoted? exp) (analyze-quoted exp)]
     [(variable? exp) (analyze-variable exp)]
@@ -635,8 +637,12 @@
   ((analyze exp) env)
 )
 
-(trace analyze)
-(trace execute-application)
+;(trace analyze)
+;(trace analyze-application)
+;(trace analyze-and)
+;(trace execute-application)
+;(trace analyze-definition)
+;(trace analyze-lambda)
 
 (define (apply-primitive-procedure proc args)
   (apply-in-underlying-scheme 
@@ -647,7 +653,10 @@
 ;---helper procedures
 
 (define (user-print object)
-  (displayln object)
+  (if (eq? object (void))
+    (void)
+    (displayln object)
+  )
 )
 
 (define (driver-loop)

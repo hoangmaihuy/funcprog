@@ -1,0 +1,6 @@
+(define (f x) 
+  (define (g y)
+    (k y))
+  (define (k z)
+    (+ z 1))
+  (* (g x) x))
