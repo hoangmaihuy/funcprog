@@ -705,6 +705,66 @@
   )
 )
 
+(define (for? exp)
+  (tagged-list? exp 'for)
+)
+
+(define (for-init exp)
+  (cadr exp)
+)
+
+(define (for-predicate exp)
+  (caddr exp)
+)
+
+(define (for-step exp)
+  (cadddr exp)
+)
+
+(define (for-body exp)
+  (cddddr exp)
+)
+
+(define (analyze-for exp)
+  (lambda (env)
+    (let ([iproc (analyze (for-init exp))]
+          [pproc (analyze (for-predicate exp))]
+          [sproc (analyze (for-step exp))]
+          [bprocs (map analyze (for-body exp))])
+      (iproc env)
+      (define (body-loop procs)
+        (if (null? procs)
+          (begin (sproc env) (for-loop))
+          (let ([result ((car procs) env)])
+            (if (eq? result 'break)
+              (void)
+              (body-loop (cdr procs))
+            )
+          )
+        )
+      )
+
+      (define (for-loop)
+        (let ([result (pproc env)])
+          (if (true? result)
+            (body-loop bprocs)
+            (void)
+          )
+        )
+      )
+      (for-loop)
+    )
+  )
+)
+
+(define (break? exp)
+  (tagged-list? exp 'break)
+)
+
+(define (analyze-break exp)
+  (lambda (env) 'break)
+)
+
 (define (analyze exp)
   ;(displayln exp)
   (cond
@@ -723,6 +783,8 @@
     [(cond? exp) (analyze (cond->if exp))]
     [(while? exp) (analyze-while exp)]
     [(switch? exp) (analyze-switch exp)]
+    [(for? exp) (analyze-for exp)]
+    [(break? exp) (analyze-break exp)]
     [(application? exp) (analyze-application exp)]
     [else (error "Unknown expression type: ANALYZE" exp)]
   )
