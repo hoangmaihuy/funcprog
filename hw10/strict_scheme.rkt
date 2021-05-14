@@ -892,7 +892,6 @@
 )
 
 (define (analyze exp)
-  ;(displayln exp)
   (cond
     [(equal? exp '(cond ((and (> 5 3) (> 6 2) (* 3 4))))) (analyze 12)]
     [(self-evaluating? exp) (analyze-self-evaluating exp)]
@@ -917,6 +916,7 @@
 )
 
 (define (evaluate exp env)
+  (display "evaluate: ") (display exp) (newline)
   ((analyze exp) env)
 )
 
@@ -951,7 +951,7 @@
   (let ([input (read)])
     (if (eq? input eof)
       (void)
-      (let ([output (evaluate input glb-env)])
+      (let ([output (actual-value (analyze input) glb-env)])
         (user-print output)
         (driver-loop)
       )
