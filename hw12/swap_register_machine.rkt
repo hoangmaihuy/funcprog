@@ -2,6 +2,7 @@
 (require r5rs)
 
 (define current-machine '*unassigned*)
+(define machine-error #f)
 
 (define (tagged-list? exp tag)
   (if (pair? exp)
@@ -188,6 +189,9 @@
           (if (symbol? next-inst)
             (begin
               ;(display "label: ") (display next-inst) (newline)
+              (if (assoc next-inst labels)
+                (set! machine-error "label error in machine")
+              )
               (receive insts (cons (make-label-entry next-inst insts) labels))
             )
             (begin 
@@ -200,6 +204,7 @@
     )
   )
 )
+
 
 (define (update-insts! insts labels machine)
   (let ([pc (get-register machine 'pc)]
@@ -262,6 +267,7 @@
       [(eq? inst-type 'save) (make-save inst machine stack pc)]
       [(eq? inst-type 'restore) (make-restore inst machine stack pc)]
       [(eq? inst-type 'perform) (make-perform inst machine labels ops pc)]
+      [(eq? inst-type 'swap) (make-swap inst machine pc)]
       [else (error "Unknown instruction type: ASSEMBLE" inst)]
     )
   )
@@ -490,6 +496,20 @@
   )
 )
 
+(define (make-swap inst machine pc)
+  (let ([reg1 (get-register machine (cadr inst))]
+        [reg2 (get-register machine (caddr inst))])
+    (lambda ()
+      (let ([val1 (get-contents reg1)]
+            [val2 (get-contents reg2)])
+        (set-contents! reg1 val2)
+        (set-contents! reg2 val1)
+        (advance-pc pc)
+      )
+    )
+  )
+)
+
 (define (get-ops-from-text text-ops)
   (map
     (lambda (p)
@@ -524,6 +544,7 @@
               [ops (caddr input)]
               [controller-text-quoted (cadddr input)])
           (display "a new machine") (newline)
+          (set! machine-error #f)
           (set! 
             current-machine
             (make-machine 
@@ -532,9 +553,18 @@
               (cadr controller-text-quoted)
             )
           )
+          (if machine-error 
+            (begin 
+              (display machine-error) (newline)
+              (set! current-machine '*unassigned*)
+              (void)
+            )
+          )
           (input-loop)
         )
       ]
+      ; error in machine, skip next input
+      [(eq? current-machine '*unassigned*) (read) (input-loop)]
       [else 
         (for-each
           (lambda (p)
