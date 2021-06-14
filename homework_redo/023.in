@@ -1,0 +1,4 @@
+((check-cycle (list 1 2 3 4 5 6)))
+((define x4 (list (list 1) 2))  (set-cdr! (car x4) (cdr x4))   (check-cycle x4))
+((define e1 (cons 'a '())) (define e2 (cons e1 e1)) (define e7 (cons e2 e2)) (check-cycle e7))
+((define clst (make-cycle (list 1 2 3 4 5 6 7 8 9 10))) (check-cycle clst))

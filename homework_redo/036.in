@@ -1,0 +1,44 @@
+(make-machine
+   '(a b t)
+   (list (list 'rem remainder) (list '= =))
+   '(test-b
+       (test (op =) (reg b) (const 0))
+       (branch (label gcd-done))
+       (assign t (op rem) (reg a) (reg b))
+       (assign a (reg b))
+       (assign b (reg t))
+       (goto (label test-b))
+     gcd-done))
+
+((a 12) (b 18))
+(a)
+((a 37) (b 11))
+(a)
+
+(make-machine
+   '(c d val)
+   (list (list '+ +))
+   '(
+       (assign val (op +) (reg c) (reg d))
+     ))
+
+((c 12) (d 18))
+(val)
+((c 37) (d 11))
+(val c d)
+
+
+(make-machine
+   '(a b tmp)
+   (list )
+   '(
+       (assign tmp (reg a))
+       (assign a (reg b))
+       (assign b (reg tmp))
+     ))
+
+((a 10) (b 20))
+(a b)
+
+((a Tom) (b Jack))
+(a b)

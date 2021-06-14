@@ -1,0 +1,58 @@
+(display "case 1:") (newline)
+(define (func (x lazy)) x)
+(define w (func (/ 1 0)))
+(define k w)
+(define (try a (b lazy))
+         (if (= a 0) 
+             a 
+             b))
+(try 0 k)
+
+
+(display "case 2:") (newline)
+(define (p1 x)
+  (define (p (e lazy))
+    e
+    x)
+  (p (set! x (cons x '(2)))))
+(p1 1)
+
+
+(display "case 3:") (newline)
+(define (p2 x)
+  (define (p e)
+    e
+    x)
+  (p (set! x (cons x '(2)))))
+(p2 1)
+
+
+(define (inc x)
+  (display "x=") (display x) (newline)
+  (set! x (+ 1 x))
+  x)
+
+(display "case 4:") (newline)
+(define (f1 x)
+  (> x 1) x)
+(f1 (inc 3))
+
+
+(display "case 5:") (newline)
+(define (f2 (x lazy))
+  (> x 1) x)
+(f2 (inc 3))
+
+
+(display "case 6:") (newline)
+(define (f3 (x lazy-memo))
+  (> x 1) x)
+(f3 (inc 3))
+
+
+(display "case 7:") (newline)
+(define (f x (y lazy) (z lazy-memo))
+  x (+ x 1) (+ x 1)
+  y ( + y 1) (+ y 1) 
+  z (> z 1) (+ z 1))
+(f (inc 2) (inc 20) (inc 200))

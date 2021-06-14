@@ -1,0 +1,18 @@
+(
+(define (displayln x) 
+  (display x) (newline))
+
+(define (integers-starting-from n)
+  (cons-stream n (integers-starting-from (+ n 1))))
+
+
+(define factorials (partial-sums * (integers-starting-from 1)))
+
+(displayln (stream-ref factorials 0))
+(displayln (stream-ref factorials 1))
+(displayln (stream-ref factorials 2)) 
+(displayln (stream-ref factorials 3)) 
+(displayln (stream-ref factorials 4)) 
+
+'ok
+)

@@ -1,0 +1,52 @@
+(displayln "1----")
+(define x 140)
+(switch (- x 100)
+        (x (+ x 3)(* x 5))
+        (30 (displayln x) )
+        ((+ 20 20) (displayln (* x x))  x)
+        (default 100)
+        )
+
+(displayln "2----")
+(switch (- x 100)
+        (x (+ x 3)(* x 5))
+        (30 (displayln x) )
+        (50 (displayln (* x x))  x)
+        (default 100)
+        )
+
+
+(displayln "3----")
+(define x 3)
+
+(for ()
+  (< x 8)
+  ()
+  (if (> x 4)
+      (break)
+      (displayln "***"))
+  
+  (display x) (display " ")
+  (displayln (* x x))
+  (set! x (+ x 1)))
+
+
+(displayln "4----")
+
+(define y 5)
+(for (set! x 0)
+  (< x 5)
+  (set! x (+ x 1))
+  (for (set! y (+ x 1))
+    (< y 5)
+    (set! y (+ y 1))
+    (if (= (remainder  (+ x y) 4) 2)
+        (break)
+        1)
+    (display x)(display " ") (displayln y)))
+
+(displayln "5----")
+(define k 2)
+(while (< k 5)
+       (displayln (* k k))
+       (set! k (+ k 1)))

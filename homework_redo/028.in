@@ -1,0 +1,10 @@
+(
+ (define (displayln x) (display x) (newline))
+ (define (integers-starting-from n)
+  (cons-stream n (integers-starting-from (+ n 1))))
+
+(define ones (cons-stream 1 ones))
+
+(display-stream (partial-sums-ex + (integers-starting-from 1)) 10)
+'ok
+)

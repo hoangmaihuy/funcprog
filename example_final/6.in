@@ -1,0 +1,32 @@
+(define x 3)
+(for ()
+  (< x 8)
+  ()
+   
+  (display x) (display " ")
+  (displayln (* x x))
+  (set! x (+ x 1)))
+
+(displayln "****")
+
+(define y 1)
+(for ()
+  (< y 5)
+  (set! y (+ y 1))
+  (display y) (display " ")
+  (displayln (+ y y)))
+
+(displayln "****")
+
+(for (set! x 1)
+  (< x 6)
+  (set! x (+ x 1))
+  (display x) (display " ")
+  (displayln (* x x)))
+
+(for ()
+     (< x 4)
+     (set! x (+ x 2))
+      (displayln x))
+
+(displayln "****")

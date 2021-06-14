@@ -1,0 +1,25 @@
+(define (square x)
+  (* x x))
+(define (inc x)
+  (+ x 1))
+(define (f g h)
+	(lambda (x) (g (h x))))
+
+((f square inc) 5)
+
+
+(define (k x)
+  (if (> (square x) 10)
+      (begin (- x x) (+ x x))
+      10))
+
+(k 4)
+(k 3)
+(car (list 13 12))
+
+(define (mymap proc lst)
+  (if (null? lst)
+      '()
+      (cons (proc (car lst)) (mymap proc (cdr lst)))))
+
+(mymap square (list 1 2 3 4))

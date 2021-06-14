@@ -1,0 +1,5 @@
+(my-map +)
+(my-map + '() '())
+(my-map + '() (list 1))
+(my-map + '() (list 2 3) (list 4))
+(my-map + (list 2) (list 2 3))

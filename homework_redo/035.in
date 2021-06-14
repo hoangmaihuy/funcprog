@@ -1,0 +1,85 @@
+(if-fail (amb 1 2 4) (amb 2 5))
+(if-fail (amb) (amb 12 2))
+(define (getx x)
+  (require (< x 10))
+  x)
+(if-fail (getx 13) (getx 3))
+(let ((a (amb 1 2 3 4))
+      (b (if-fail (getx 13) (amb 5 6 7))))
+  (require (> (+ a b) 9))
+  (display "a=") (display a) (newline)
+  (display "b=") (display b) (newline))
+
+
+(let ((m2 (if-fail 4 50)))
+  (require (> m2 20))
+  m2)
+
+
+(all-answer 14)
+(list 1 2 3 4)
+try-again
+(all-answer (amb 1 2 3 4))
+(list 1 2 3 4)
+(amb 1 2 3 4)
+try-again
+try-again
+
+(amb 5 6 7)
+try-again
+try-again
+try-again
+try-again
+
+(amb)
+
+(let ((k (list (amb 1 2 3) (amb 4 5 6))))
+  (require (> (+ (car k) (car (cdr k))) 7))
+  k)
+
+
+
+(let ((m (+ (amb 1 2 3) (amb 4 5 6))))
+  (require (> m 6))
+  m)
+try-again
+
+(define (test2)
+  (let ((op (amb - +))
+        (k (amb 1 2 3)))
+    (let ((r (op 4 k)))
+      (require (< r 2))
+      r)))
+(test2)
+
+
+(define (test3)
+    (let ((m (if (amb true false)
+                3
+                4)))
+      (require (= m 4))
+      m))
+
+(test3) 
+
+(define (test x y)
+  (let ((m (amb  50 30 10 20 50)))
+    (require (> (+ x y) m))
+    m))
+(test 7 8)
+(test 1 2)
+
+
+(let ((k (list (amb 8 2 3) (amb 4 5 6))))
+  (require (< (* (car k) (car (cdr k))) 12))
+  k)
+
+try-again
+try-again
+
+
+(define (inc x) (+ x 1))
+(if (> 2 3) (inc 3) (* 2 (inc 8)))
+
+(all-answer (list (amb 1 2 3) (amb 4 5 6)))
+try-again

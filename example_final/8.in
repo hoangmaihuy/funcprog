@@ -1,0 +1,29 @@
+(new-if (let ((x (amb 2 3 4 5 6)))
+          (require (> x 5))
+          x)
+        5
+        4)
+
+(new-if (amb 1 2 4) (amb 2 5) (amb 7 9))
+(new-if (amb) (amb 12 2) 13)
+(define (getx x)
+  (require (< x 10))
+  x)
+(new-if (getx 3) (getx 15) (getx 30))
+(new-if (getx 13) (getx 15) (getx 30))
+(new-if (getx 13) (getx 15) (getx 8))
+
+
+(let ((a (amb 1 2 3 4))
+      (b (new-if (getx 13) (amb 5 6 7) (amb 5 60 870))))
+  (require (> (+ a b) 9))
+  (display "a=") (display a) (newline)
+  (display "b=") (display b) (newline))
+
+(let ((m2 (new-if 4 50 100)))
+  (require (> m2 20))  
+  m2)
+
+(let ((m2 (new-if 4 50 100)))
+  (require (> m2 200))  
+  m2)
