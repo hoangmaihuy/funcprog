@@ -1,0 +1,71 @@
+(make-machine
+   '(a b t)
+   (list (list 'rem remainder) (list '= =))
+   '(test-a
+       (test (op =) (reg b) (const 0))
+       (branch (label gcd-done))
+       (assign t (op rem) (reg a) (reg b))
+    test-b       
+       (assign a (reg b))
+       (assign b (reg t))
+       (goto (label test-a))
+     gcd-done)
+    )
+ 
+((a 12) (b 18))
+(a)
+((a 37) (b 11))
+(a)
+((a 120) (b 70))
+(a)
+
+
+
+(make-machine
+   '(c d val)
+   (list (list '+ +) (list '> >) (list 'eq eq?))
+   '(
+       (test (op eq) (reg c) (reg d))
+test-a     
+       (branch (label equal))
+       (assign val (const no))
+       (goto (label done))
+    equal
+       (assign val (const yes))
+    done)
+   (test-a 2 val)
+   )
+
+((c 18) (d 24)) 
+(c d)
+
+((c 24) (d 24))
+(c d)
+
+
+
+(make-machine
+   '(c d val)
+   (list (list '+ +) (list '> >) (list 'eq eq?))
+   '(
+       
+       (assign val (const 0)) 
+test-a 
+       (test (op >) (reg c) (reg d))
+       (branch (label done))
+       (assign c (op + ) (reg c) (const 1))
+test-b       
+       (assign val (op + ) (reg val) (const 1))
+       (goto (label test-a))
+done 
+    )
+   (test-b 0 c val)
+   (test-a 1 c val)
+   
+)
+
+((c 10) (d 15))
+(c d val)
+
+((c 15) (d 10))
+(c d val)

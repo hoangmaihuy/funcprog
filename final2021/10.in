@@ -1,0 +1,35 @@
+5
+
+(let ((a (amb 1 2 3)))
+  (let ((b (amb 4 8 12)))
+    (let ((c (amb 10 20 30 40)))
+      (require (> (+ a b c) 20))
+      (+ a b c))))
+
+(try-again 0)
+(try-again 1)
+(try-again 1)
+(try-again 2)
+(try-again 1)
+(try-again 3)
+
+
+(amb 1 2 3 4)
+
+(let ((a (amb 1 2 3)))
+  (let ((b (amb 4 8 12)))
+    (let ((c (amb 10 20 30 40)))
+      (require (> (+ a b c) 20))
+      (+ a b c))))
+
+(try-again 1)
+(try-again 1)
+(try-again 1)
+(try-again 1)
+
+
+1
+(try-again 2)
+
+(amb 1 2 3 4)
+(try-again 0)

@@ -1,0 +1,12 @@
+(define aa 1)
+(define b 10)
+(while (< aa 5)
+       (set! aa (+ aa 1))
+       (set! b (+ b 2))
+       )
+b
+(while (< aa 5)
+       (set! aa (+ aa 1))
+       (set! b (+ b 2))
+       )
+b

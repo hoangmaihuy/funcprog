@@ -1,0 +1,4 @@
+((cons (list 'guo 'laoshi) (list 'hao 'shuai)))
+((list 3 (list (append lst1 lst2) (append lst1 lst2))))
+((define pair3 (cons 'a 'b)) (define lst3 (list 1 2 3)) (define pair4 (cons pair3 pair3)) (set-car! pair4 4) pair4)
+((set! pair1 1) (cons pair1 pair1))
